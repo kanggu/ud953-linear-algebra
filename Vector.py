@@ -46,8 +46,10 @@ class Vector(object):
     def inner(self, v):
         return sum([i * j for i,j in zip(self.coordinates,v.coordinates)])
 
+    def angle(self, v):
+        return math.acos(self * v / self.magnitude / v.magnitude)
 
-myVector1 = Vector([-5.955, -4.904, -1.874])
-myVector2 = Vector([-4.496, -8.755, 7.103])
-print(myVector1.magnitude)
+myVector1 = Vector([7.35, 0.221, 5.188])
+myVector2 = Vector([2.751, 8.259, 3.985])
+print(myVector1.angle(myVector2))
 print(myVector1 * myVector2)
