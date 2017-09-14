@@ -40,6 +40,7 @@ class Vector(object):
     def direction(self): # unit vector
         return self / self.magnitude
 
-myVector1 = Vector([1,2,3])
+myVector1 = Vector([1.996,3.108,-4.554])
 myVector2 = Vector([4,5,6])
+print(myVector1.magnitude)
 print(myVector1.direction())
