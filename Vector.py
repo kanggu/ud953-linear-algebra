@@ -1,3 +1,5 @@
+import math
+
 class Vector(object):
     def __init__(self, coordinates):
         try:
@@ -5,7 +7,7 @@ class Vector(object):
                 raise ValueError
             self.coordinates = tuple(coordinates)
             self.dimension = len(coordinates)
-            self.magnitude = sum([i ** 2 for i in coordinates])
+            self.magnitude = math.sqrt(sum([i ** 2 for i in coordinates]))
 
         except ValueError:
             raise ValueError("The coordinates must be nonempty")
