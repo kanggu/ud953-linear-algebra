@@ -9,8 +9,8 @@ class Vector(object):
         except ValueError:
             raise ValueError("The coordinates must be nonempty")
 
-    except TypeError:
-        raise TypeError("The coordinates must be an iterable")
+        except TypeError:
+            raise TypeError("The coordinates must be an iterable")
 
 
     def __str__(self):
