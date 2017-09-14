@@ -19,3 +19,10 @@ class Vector(object):
 
     def __eq__(self, v):
         return self.coordinates == v.coordinates
+
+    def __mul__(self, n):
+        return Vector([n * i for i in self.coordinates])
+
+myVector1 = Vector([1,2,3])
+myVector2 = Vector([1,2,3])
+print(myVector1 * 2)
