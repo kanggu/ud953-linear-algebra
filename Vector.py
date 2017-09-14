@@ -41,7 +41,13 @@ class Vector(object):
         return Vector([i / n for i in self.coordinates])
 
     def direction(self): # unit vector
-        return self / self.magnitude
+        try:
+            if self.isZero():
+                raise ZeroVectorError
+            else:
+                return self / self.magnitude
+        except ZeroVectorError:
+            raise ZeroVectorError("This function is not valid with zero vector.")
 
     def inner(self, v):
         return sum([i * j for i,j in zip(self.coordinates,v.coordinates)])
