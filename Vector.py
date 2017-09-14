@@ -30,4 +30,4 @@ class Vector(object):
 
 myVector1 = Vector([1,2,3])
 myVector2 = Vector([1,2,3])
-print(myVector1 * 2)
+print(3 * myVector1)
