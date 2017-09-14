@@ -31,10 +31,8 @@ class Vector(object):
         return Vector([n * i for i in self.coordinates])
 
     def __rmul__(self, n):
-        """ Called if 4*self for instance """
         return self.__mul__(n)
 
 myVector1 = Vector([1,2,3])
-myVector2 = Vector([1,2,3])
-print(3 * myVector1)
->>>>>>> 79d9bd105e043827dc1a913bd0720a8419ae8c38
+myVector2 = Vector([4,5,6])
+print(myVector1 + myVector2)
