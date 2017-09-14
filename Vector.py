@@ -28,8 +28,11 @@ class Vector(object):
     def __sub__(self,v):
         return Vector([i - j for i,j in zip(self.coordinates, v.coordinates)])
 
-    def __mul__(self, n):
-        return Vector([n * i for i in self.coordinates])
+    def __mul__(self, x):
+        if type(x) == type(self):
+            return self.inner(x)
+        else:
+            return Vector([x * i for i in self.coordinates])
 
     def __rmul__(self, n):
         return self.__mul__(n)
@@ -40,7 +43,11 @@ class Vector(object):
     def direction(self): # unit vector
         return self / self.magnitude
 
-myVector1 = Vector([1.996,3.108,-4.554])
-myVector2 = Vector([4,5,6])
+    def inner(self, v):
+        return sum([i * j for i,j in zip(self.coordinates,v.coordinates)])
+
+
+myVector1 = Vector([-5.955, -4.904, -1.874])
+myVector2 = Vector([-4.496, -8.755, 7.103])
 print(myVector1.magnitude)
-print(myVector1.direction())
+print(myVector1 * myVector2)
