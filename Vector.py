@@ -62,7 +62,10 @@ class Vector(object):
         return (self.isZero() or v.isZero() or
                 self.angle(v) == 0 or self.angle(v) == math.pi)
 
+    def isOrthogonal(self, v, tolerance=1e-10):
+        return self * v < tolerance
+
 myVector1 = Vector([-2.328, -7.284, -1.214])
 myVector2 = Vector([-1.821, 1.072, -2.94])
-print(myVector1.isParallel(myVector2))
+print(myVector1.isOrthogonal(myVector2))
 print(myVector1 * myVector2)
