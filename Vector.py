@@ -19,7 +19,6 @@ class Vector(object):
     def __str__(self):
         return "Vector: {}".format(self.coordinates)
 
-
     def __eq__(self, v):
         return self.coordinates == v.coordinates
 
@@ -43,4 +42,4 @@ class Vector(object):
 
 myVector1 = Vector([1,2,3])
 myVector2 = Vector([4,5,6])
-print(myVector1 + myVector2)
+print(myVector1 / 2)
