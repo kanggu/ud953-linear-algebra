@@ -23,6 +23,11 @@ class Vector(object):
     def __mul__(self, n):
         return Vector([n * i for i in self.coordinates])
 
+    def __rmul__(self, n):
+        """ Called if 4*self for instance """
+        return self.__mul__(n)
+
+
 myVector1 = Vector([1,2,3])
 myVector2 = Vector([1,2,3])
 print(myVector1 * 2)
