@@ -31,10 +31,14 @@ class Vector(object):
         return Vector([n * i for i in self.coordinates])
 
     def __rmul__(self, n):
-        """ Called if 4*self for instance """
         return self.__mul__(n)
+
+    def __div__(self, n):
+        return Vector([i / n for i in self.coordinates])
+
+    def direction(self):
+        return self / self.magnitude
 
 myVector1 = Vector([1,2,3])
 myVector2 = Vector([1,2,3])
-print(3 * myVector1)
->>>>>>> 79d9bd105e043827dc1a913bd0720a8419ae8c38
+print(myVector1.direction())
