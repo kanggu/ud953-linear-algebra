@@ -34,12 +34,12 @@ class Vector(object):
     def __rmul__(self, n):
         return self.__mul__(n)
 
-    def __div__(self, n):
+    def __truediv__(self, n):
         return Vector([i / n for i in self.coordinates])
 
-    def direction(self):
+    def direction(self): # unit vector
         return self / self.magnitude
 
 myVector1 = Vector([1,2,3])
 myVector2 = Vector([4,5,6])
-print(myVector1 / 2)
+print(myVector1.direction())
