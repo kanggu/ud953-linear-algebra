@@ -5,6 +5,7 @@ class Vector(object):
                 raise ValueError
             self.coordinates = tuple(coordinates)
             self.dimension = len(coordinates)
+            self.magnitude = sum([i ** 2 for i in coordinates])
 
         except ValueError:
             raise ValueError("The coordinates must be nonempty")
