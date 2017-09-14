@@ -47,10 +47,20 @@ class Vector(object):
         return sum([i * j for i,j in zip(self.coordinates,v.coordinates)])
 
     def angle(self, v):
-        return math.acos(self * v / self.magnitude / v.magnitude)
+        try:
+            if self.isZero() or v.isZero():
+                raise ZeroVectorError
+            else:
+                return math.acos(self * v / self.magnitude / v.magnitude)
+        except ZeroVectorError:
+            raise ZeroVectorError("This function is not valid with zero vector.")
+
+    def isZero(self, tolerance = 1e-10):
+        return self.magnitude < tolerance
 
     def isParallel(self, v):
-        return abs(self * v / self.magnitude / v.magnitude) == 1
+        return (self.isZero() or v.isZero() or
+                self.angle(v) == 0 or self.angle(v) == math.pi)
 
 myVector1 = Vector([-2.328, -7.284, -1.214])
 myVector2 = Vector([-1.821, 1.072, -2.94])
