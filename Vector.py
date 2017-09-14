@@ -5,6 +5,7 @@ class Vector(object):
                 raise ValueError
             self.coordinates = tuple(coordinates)
             self.dimension = len(coordinates)
+            self.magnitude = mag(coordinates)
 
         except ValueError:
             raise ValueError("The coordinates must be nonempty")
@@ -19,3 +20,10 @@ class Vector(object):
 
     def __eq__(self, v):
         return self.coordinates == v.coordinates
+
+    def mag(coordinates):
+        
+        return
+
+myVector1 = Vector([1,2,3])
+myVector2 = Vector([-1,-2,-3])
