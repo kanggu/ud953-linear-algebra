@@ -49,8 +49,8 @@ class Vector(object):
     def angle(self, v):
         return math.acos(self * v / self.magnitude / v.magnitude)
 
-    def isOrthogonal(self, v):
-        return self * v == 0
+    def isOrthogonal(self, v, tolerance=1e-10):
+        return self * v < tolerance
 
 myVector1 = Vector([-2.328, -7.284, -1.214])
 myVector2 = Vector([-1.821, 1.072, -2.94])
