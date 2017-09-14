@@ -27,6 +27,14 @@ class Vector(object):
     def __sub__(self,v):
         return Vector([i - j for i,j in zip(self.coordinates, v.coordinates)])
 
-myVector1 = Vector([2,4,6])
-myVector2 = Vector([-1,-2,-3])
-print(myVector1 + myVector2)
+    def __mul__(self, n):
+        return Vector([n * i for i in self.coordinates])
+
+    def __rmul__(self, n):
+        """ Called if 4*self for instance """
+        return self.__mul__(n)
+
+myVector1 = Vector([1,2,3])
+myVector2 = Vector([1,2,3])
+print(3 * myVector1)
+>>>>>>> 79d9bd105e043827dc1a913bd0720a8419ae8c38
