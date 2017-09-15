@@ -84,3 +84,9 @@ class Vector(object):
 
     def orthogonalProjection(self, v):
         return self - self.parallelProjection(v)
+
+    def cross(self, v):
+        arrCross = [self.coordinates[1] * v.coordinates[2] - self.coordinates[2] * v.coordinates[1],
+                    self.coordinates[2] * v.coordinates[0] - self.coordinates[0] * v.coordinates[2],
+                    self.coordinates[0] * v.coordinates[1] - self.coordinates[1] * v.coordinates[0]]
+        return Vector(arrCross)
