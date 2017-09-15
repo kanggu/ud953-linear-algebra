@@ -45,7 +45,7 @@ class Vector(object):
         try:
             return self / self.magnitude()
         except ZeroDivisionError:
-            raise Exception("Cannot normalize the zero vector.")
+            raise Exception("Cannot normalize zero vector.")
 
     def dot(self, v):
         return sum([i * j for i,j in zip(self.coordinates,v.coordinates)])
@@ -72,3 +72,15 @@ class Vector(object):
 
     def isOrthogonal(self, v, tolerance=1e-10):
         return abs(self * v) < tolerance
+
+    def parallelProjection(self, v):
+        try:
+            if self.isZero() or v.isZero():
+                raise ZeroVectorError
+            else:
+                return self * v.direction() * v.direction()
+        except ZeroVectorError:
+            raise ZeroVectorError("This function is not valid with zero vector")
+
+    def orthogonalProjection(self, v):
+        return self - self.parallelProjection(v)
