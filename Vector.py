@@ -36,7 +36,7 @@ class Vector(object):
         return self.__mul__(n)
 
     def magnitude(self):
-        return math.sqrt(sum([i ** 2 for i in self.coordinates]))
+        return math.sqrt(self * self)
 
     def __truediv__(self, n):
         return Vector([i / n for i in self.coordinates])
